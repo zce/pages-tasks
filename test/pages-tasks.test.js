@@ -1,10 +1,23 @@
 import test from 'ava'
-import { clean, compile, serve, build, start, deploy } from '..'
+import { clean, compile, build } from '..'
+
+import path from 'path'
 
 test.beforeEach(t => {
-  process.chdir('example')
+  process.chdir(path.join(__dirname, '../example'))
 })
 
-test('clean', async t => {
+test.serial('clean', async t => {
   await clean()
+  t.pass()
+})
+
+test.serial('compile', async t => {
+  await compile()
+  t.pass()
+})
+
+test.serial('build', async t => {
+  await build()
+  t.pass()
 })
