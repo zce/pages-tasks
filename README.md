@@ -1,14 +1,12 @@
 # pages-tasks
 
 [![Build Status][travis-image]][travis-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![NPM Version][version-image]][version-url]
 [![License][license-image]][license-url]
 [![Dependency Status][dependency-image]][dependency-url]
 [![devDependency Status][devdependency-image]][devdependency-url]
 [![Code Style][style-image]][style-url]
 
-> A preset static pages project gulp tasks
+> A tasks for static pages
 
 ## Installation
 
@@ -21,54 +19,120 @@ $ npm install pages-tasks
 
 ## Usage
 
-<!-- TODO: Introduction of API use -->
+gulpfile.js
 
-```javascript
-const pagesTasks = require('pages-tasks')
-const result = pagesTasks('zce')
-// result => 'zce@zce.me'
+```js
+module.exports = require('pages-tasks')
 ```
 
-## API
+package.json
 
-<!-- TODO: Introduction of API -->
+```json
+{
+  "scripts": {
+    "clean": "gulp clean",
+    "lint": "gulp lint",
+    "compile": "gulp compile",
+    "serve": "gulp serve",
+    "build": "gulp build",
+    "start": "gulp start",
+    "deploy": "gulp deploy --production"
+  }
+}
+```
 
-### pagesTasks(name[, options])
+then
 
-#### name
+```shell
+$ yarn <task> [options]
 
-- Type: `string`
-- Details: name string
+# e.g.
+$ yarn serve --port 5210
+$ yarn build --production
+```
+
+## All Tasks
+
+### lint
+
+Lint styles & scripts files.
+
+### clean
+
+Clean dist & temp files.
+
+### compile
+
+Compile styles & scripts & pages file.
+
+### serve
+
+Running an automated development server.
 
 #### options
 
-##### host
+- `port`: Server port, Default: `2080`
+- `open`: Automatically open browser, Default: `true`
 
-- Type: `string`
-- Details: host string
-- Default: `'zce.me'`
+### build
 
-## CLI Usage
+Build the entire project to get releasable files.
 
-<!-- TODO: Introduction of CLI -->
+- `production`: Production mode, Default: `false`
+- `prod`: Alias to `production`
 
-```shell
-$ yarn global add pages-tasks
+### start
 
-# or npm
-$ npm install pages-tasks -g
+Running projects in production mode.
+
+#### options
+
+- `port`: Server port, Default: `2080`
+- `open`: Automatically open browser, Default: `true`
+
+### deploy
+
+Deploy build results to [GitHub Pages](https://pages.github.com).
+
+#### options
+
+- `branch`: The name of the branch you'll be pushing to, Default: `'gh-pages'`
+
+## Folder Structure
+
 ```
-
-```shell
-$ pages-tasks --help
-
-  Usage: pages-tasks <input>
-
-  Options:
-
-    -V, --version  output the version number
-    -H, --host     Email host
-    -h, --help     output usage information
+└── my-project ··································································· proj root
+   ├─ public ····································································· static
+   │  └─ .gitkeep ································································ static file (unprocessed)
+   ├─ src ········································································ source
+   │  ├─ assets ·································································· assets
+   │  │  ├─ fonts ································································ fonts
+   │  │  │  └─ .gitkeep ·························································· font file
+   │  │  ├─ images ······························································· images
+   │  │  │  └─ .gitkeep ·························································· image file
+   │  │  ├─ scripts ······························································ scripts (babel / uglify)
+   │  │  │  └─ .gitkeep ·························································· script file
+   │  │  └─ styles ······························································· styles (scss / postcss)
+   │  │     ├─ _variables.scss ··················································· partial file (dont output)
+   │  │     └─ main.scss ························································· entry scss file
+   │  ├─ data ···································································· data files
+   │  │  └─ menu.yml ····························································· data file
+   │  ├─ layouts ································································· layouts (dont output)
+   │  │  └─ basic.html ··························································· layout file
+   │  ├─ partials ································································ partials (dont output)
+   │  │  ├─ footer.html ·························································· partial file
+   │  │  └─ header.html ·························································· partial file
+   │  ├─ about.html ······························································ page file (use layout & partials)
+   │  └─ index.html ······························································ page file (use layout & partials)
+   ├─ .editorconfig ······························································ editor config file
+   ├─ .gitignore ································································· git ignore file
+   ├─ .travis.yml ································································ travis ci config file
+   ├─ CHANGELOG.md ······························································· repo changelog
+   ├─ LICENSE ···································································· repo license
+   ├─ README.md ·································································· repo readme
+   ├─ gulpfile.js ································································ gulp tasks file
+   ├─ package.json ······························································· package file
+   └─ yarn.lock ·································································· yarn lock file
 ```
 
 ## Contributing
@@ -84,16 +148,12 @@ $ pages-tasks --help
 
 ## License
 
-[MIT](LICENSE) &copy; zce <w@zce.me> (https://zce.me)
+[MIT](LICENSE) &copy; [汪磊](https://zce.me)
 
 
 
-[travis-image]: https://img.shields.io/travis/zce/pages-tasks.svg
+[travis-image]: https://travis-ci.org/zce/pages-tasks.svg?branch=master
 [travis-url]: https://travis-ci.org/zce/pages-tasks
-[downloads-image]: https://img.shields.io/npm/dm/pages-tasks.svg
-[downloads-url]: https://npmjs.org/package/pages-tasks
-[version-image]: https://img.shields.io/npm/v/pages-tasks.svg
-[version-url]: https://npmjs.org/package/pages-tasks
 [license-image]: https://img.shields.io/github/license/zce/pages-tasks.svg
 [license-url]: https://github.com/zce/pages-tasks/blob/master/LICENSE
 [dependency-image]: https://img.shields.io/david/zce/pages-tasks.svg
