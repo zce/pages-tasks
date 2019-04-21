@@ -4,7 +4,6 @@
   "description": "A preset static pages project gulp tasks",
   "keywords": [
     "pages-tasks",
-    "cli",
     "zce"
   ],
   "homepage": "https://github.com/zce/pages-tasks#readme",
@@ -14,13 +13,9 @@
   "license": "MIT",
   "author": "zce <w@zce.me> (https://zce.me)",
   "files": [
-    "bin",
     "lib"
   ],
   "main": "lib/index.js",
-  "bin": {
-    "pages-tasks": "bin/pages-tasks.js"
-  },
   "directories": {
     "lib": "lib",
     "example": "example",
@@ -49,6 +44,7 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
+    "gulp-less": "^4.0.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-nunjucks": "^4.0.0",
     "gulp-plumber": "^1.2.1",
