@@ -11,23 +11,25 @@
     "url": "https://github.com/zce/pages-tasks/issues"
   },
   "license": "MIT",
-  "author": "zce <w@zce.me> (https://zce.me)",
+  "author": {
+    "name": "zce",
+    "email": "w@zce.me",
+    "url": "https://zce.me"
+  },
   "files": [
     "lib"
   ],
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
-    "example": "example",
-    "test": "test"
+    "example": "example"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zce/pages-tasks.git"
   },
   "scripts": {
-    "lint": "standard --fix",
-    "test": "ava"
+    "lint": "standard --fix"
   },
   "dependencies": {
     "@babel/core": "^7.4.3",
@@ -38,7 +40,7 @@
     "csscomb": "^4.3.0",
     "cssnano": "^4.1.10",
     "del": "^4.1.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-beautify": "^3.0.0",
     "gulp-gh-pages": "^0.5.4",
@@ -53,12 +55,10 @@
     "gulp-swig": "^0.9.1",
     "gulp-uglify": "^3.0.2",
     "gulp-useref": "^3.1.6",
-    "js-yaml": "^3.13.1",
     "minimist": "^1.2.0",
     "standard": "^12.0.1"
   },
   "devDependencies": {
-    "ava": "^1.2.1",
     "standard": "^12.0.1"
   },
   "engines": {

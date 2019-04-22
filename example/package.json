@@ -1,0 +1,27 @@
+{
+  "name": "pages-tasks-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "gulp clean",
+    "lint": "gulp lint",
+    "serve": "gulp serve",
+    "build": "gulp build",
+    "start": "gulp start",
+    "deploy": "gulp deploy --production"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {
+    "pages-tasks": "file:.."
+  }
+}

@@ -17,4 +17,3 @@ notifications:
 
 script:
   - yarn lint
-  - yarn test
