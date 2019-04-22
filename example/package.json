@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean": "gulp clean",
-    "lint": "gulp lint",
-    "serve": "gulp serve",
-    "build": "gulp build",
-    "start": "gulp start",
-    "deploy": "gulp deploy --production"
+    "clean": "../node_modules/.bin/gulp clean",
+    "lint": "../node_modules/.bin/gulp lint",
+    "serve": "../node_modules/.bin/gulp serve",
+    "build": "../node_modules/.bin/gulp build",
+    "start": "../node_modules/.bin/gulp start",
+    "deploy": "../node_modules/.bin/gulp deploy --production"
   },
   "browserslist": [
     "last 1 version",
@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "pages-tasks": "file:.."
+  },
+  "xPages": {
+    "temp": "tmp"
   }
 }
