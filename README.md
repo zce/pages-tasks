@@ -50,8 +50,6 @@ $ yarn <task> [options]
 
 ### e.g.
 
-### e.g.
-
 ```shell
 # Runs the app in development mode
 $ yarn serve --port 5210 --open
@@ -59,7 +57,7 @@ $ yarn serve --port 5210 --open
 $ yarn build --production
 ```
 
-### Scripts
+### Available Scripts
 
 #### `yarn lint` or `npm run lint`
 
