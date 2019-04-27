@@ -1,12 +1,14 @@
 # pages-tasks
 
 [![Build Status][travis-image]][travis-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![NPM Version][version-image]][version-url]
 [![License][license-image]][license-url]
 [![Dependency Status][dependency-image]][dependency-url]
 [![devDependency Status][devdependency-image]][devdependency-url]
 [![Code Style][style-image]][style-url]
 
-> A preset static pages project gulp tasks
+> A preset gulp tasks for static page sites
 
 ## Installation
 
@@ -48,81 +50,103 @@ $ yarn <task> [options]
 
 ### e.g.
 
+### e.g.
+
 ```shell
+# Runs the app in development mode
 $ yarn serve --port 5210 --open
+# Builds the app for production to the `dist` folder
 $ yarn build --production
 ```
 
-## All Tasks
+### Scripts
 
-### lint
+#### `yarn lint` or `npm run lint`
 
-Lint styles & scripts files.
+Lint the styles & scripts files.
 
-### compile
+#### `yarn compile` or `npm run compile`
 
-Compile styles & scripts & pages file.
+Compile the styles & scripts & pages file.
 
-### serve
+#### `yarn serve` or `npm run serve`
 
-Running an automated development server.
+Runs the app in development mode with a automated server.
 
-#### options
+##### options
 
-- `port`: Server port, Default: `2080`
-- `open`: Automatically open browser, Default: `false`
+- `open`: Open browser on start, Default: `false`
+- `port`: Specify server port, Default: `2080`
 
-### build
+#### `yarn build` or `npm run build`
 
-Build the entire project to get releasable files.
+Builds the app for production to the `dist` folder. It minify source in production mode for the best performance.
 
-#### options
+##### options
 
-- `production`: Production mode, Default: `false`
+- `production`: Production mode flag, Default: `false`
 - `prod`: Alias to `production`
 
-### start
+#### `yarn start` or `npm run start`
 
 Running projects in production mode.
 
-#### options
+##### options
 
-- `port`: Server port, Default: `2080`
-- `open`: Automatically open browser, Default: `false`
+- `open`: Open browser on start, Default: `false`
+- `port`: Specify server port, Default: `2080`
 
-### deploy
+#### `yarn deploy` or `npm run deploy`
 
-Deploy build results to [GitHub Pages](https://pages.github.com).
+Deploy the `dist` folder to [GitHub Pages](https://pages.github.com).
 
-#### options
+##### options
 
 - `branch`: The name of the branch you'll be pushing to, Default: `'gh-pages'`
 
-### clean
+#### `yarn clean` or `npm run clean`
 
-Clean dist & temp files.
+Clean the `dist` & `temp` files.
 
 ## Folder Structure
 
 ```
-└── my-project ······································· proj root
-   ├─ public ········································· static dir (unprocessed)
-   ├─ src ············································ source dir
-   │  ├─ assets ······································ assets dir
-   │  │  ├─ fonts ···································· fonts dir (imagemin)
-   │  │  ├─ images ··································· images dir (imagemin)
-   │  │  ├─ scripts ·································· scripts dir (babel / uglify)
-   │  │  └─ styles ··································· styles dir (scss / postcss)
-   │  ├─ layouts ····································· layouts dir (dont output)
-   │  ├─ partials ···································· partials dir (dont output)
+└── my-awesome-pages ································· project root
+   ├─ public ········································· static folder
+   │  └─ favicon.ico ································· static file (unprocessed)
+   ├─ src ············································ source folder
+   │  ├─ assets ······································ assets folder
+   │  │  ├─ fonts ···································· fonts folder
+   │  │  │  └─ pages.ttf ····························· font file (imagemin)
+   │  │  ├─ images ··································· images folder
+   │  │  │  └─ logo.png ······························ image file (imagemin)
+   │  │  ├─ scripts ·································· scripts folder
+   │  │  │  └─ main.js ······························· script file (babel / uglify)
+   │  │  └─ styles ··································· styles folder
+   │  │     ├─ _variables.scss ······················· partial sass file (dont output)
+   │  │     └─ main.scss ····························· entry scss file (scss / postcss)
+   │  ├─ layouts ····································· layouts folder
+   │  │  └─ basic.html ······························· layout file (dont output)
+   │  ├─ partials ···································· partials folder
+   │  │  └─ header.html ······························ partial file (dont output)
+   │  ├─ about.html ·································· page file (use layout & partials)
    │  └─ index.html ·································· page file (use layout & partials)
+   ├─ .csscomb.json ·································· csscomb config file
    ├─ .editorconfig ·································· editor config file
    ├─ .gitignore ····································· git ignore file
    ├─ .travis.yml ···································· travis ci config file
+   ├─ CHANGELOG.md ··································· repo changelog
+   ├─ LICENSE ········································ repo license
    ├─ README.md ······································ repo readme
    ├─ gulpfile.js ···································· gulp tasks file
-   └─ package.json ··································· package file
+   ├─ package.json ··································· package file
+   └─ yarn.lock ······································ yarn lock file
 ```
+
+## Related
+
+- [zce/x-pages](https://github.com/zce/x-pages) - A fully managed gulp workflow for static page sites.
+- [zce/pages-boilerplate](https://github.com/zce/pages-boilerplate) - Always a pleasure scaffolding your awesome static sites.
 
 ## Contributing
 
@@ -140,9 +164,12 @@ Clean dist & temp files.
 [MIT](LICENSE) &copy; [汪磊](https://zce.me)
 
 
-
-[travis-image]: https://travis-ci.org/zce/pages-tasks.svg?branch=master
+[travis-image]: https://img.shields.io/travis/zce/pages-tasks/master.svg
 [travis-url]: https://travis-ci.org/zce/pages-tasks
+[downloads-image]: https://img.shields.io/npm/dm/pages-tasks.svg
+[downloads-url]: https://npmjs.org/package/pages-tasks
+[version-image]: https://img.shields.io/npm/v/pages-tasks.svg
+[version-url]: https://npmjs.org/package/pages-tasks
 [license-image]: https://img.shields.io/github/license/zce/pages-tasks.svg
 [license-url]: https://github.com/zce/pages-tasks/blob/master/LICENSE
 [dependency-image]: https://img.shields.io/david/zce/pages-tasks.svg
