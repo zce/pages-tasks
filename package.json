@@ -1,6 +1,6 @@
 {
   "name": "pages-tasks",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A preset gulp tasks for static page sites",
   "keywords": [
     "pages-tasks",
@@ -62,6 +62,8 @@
     "node": ">=6"
   },
   "renovate": {
-    "extends": [ "config:base" ]
+    "extends": [
+      "config:base"
+    ]
   }
 }
