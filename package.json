@@ -60,10 +60,5 @@
   },
   "engines": {
     "node": ">=6"
-  },
-  "renovate": {
-    "extends": [
-      "config:base"
-    ]
   }
 }
